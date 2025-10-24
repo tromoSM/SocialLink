@@ -1,0 +1,90 @@
+[tromoSM=social]{
+    background-color: aliceblue;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    border-radius: 50px;    
+    border: none;
+    outline: none;
+}
+[tromoSM=social-w]{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 20px 0px;
+    justify-content: center;
+    align-items: center;   
+}
+[tromoSM=stunt-w]{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+[tromoSM=ico]{
+    width: 25px;
+    height: 25px;
+}
+[tromoSM=head-right]{
+    right: 0;
+    top: 0;
+    margin: 10px;
+    position: absolute;
+}
+[tromoSM=fill-prof]{
+    width: 120px;
+}
+[tromoSM=full-s]{
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ align-items: center;    
+ background-color: black;
+}
+[tromoSM=form-s]{
+    width: fit-content;
+    padding: 20px 15px;
+    background-color: #333;
+    position: relative;
+    border-radius: 25px;   
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+ align-items: center;    
+ flex-direction: column;
+}
+[tromoSM=fill-ussr]{
+    font-family: SF Pro;
+    font-weight: 500;
+    font-size: x-large;
+    color: aliceblue;
+    text-align: center;
+}
+[tromoSM=fill-ussr]{
+    margin: 2px 0px;
+}
+[tromoSM=fill-des]{
+    margin: 5px 0px;
+}
+html,body{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: aliceblue;
+    font: SF Pro;
+}
+p{
+    padding: 0;
+    margin: 0;
+    font-family: SF Pro;
+}
