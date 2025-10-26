@@ -217,14 +217,24 @@ transform: scale(0.8);
     margin: 20px 10px;
     border-radius: 30px;   
     vertical-align: middle;
+    will-change: transform;
     align-self: center;
-    display: flex;
+    display: none;
     backdrop-filter: brightness(0.7) blur(25px);
     flex-wrap: wrap;
     box-shadow: 0px 0px 30px #0000004b;
    justify-content: center;
  align-items: center;    
+ animation: open-form 0.3s ease 1 forwards;
  flex-direction: column;
+}
+@keyframes open-form{
+    from{
+    transform: translateY(100px);
+    }
+    to{
+        transform: translateY(0px);
+    }
 }
 [tromoSM=fill-ussr]{
     font-family: SF Pro;
