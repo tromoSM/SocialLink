@@ -1,5 +1,49 @@
+:root{
+    --accent: 0;
+}
+[tromoSM=accentgrab-color]{
+    width: 1px;
+    height: 1px;
+}
+[tromoSM="full-l"]{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: +9999999999999;
+}
+[tromoSM="load-cont"]{
+width: 150px;
+position: relative;
+}
+[tromoSM=loaderIR]{
+background-color: var(--accent);
+width: 100px;
+position: absolute;border-radius: 50px;
+height: 3px;
+animation: open-load 1s 0ms infinite;
+}
+@keyframes open-load{
+    from{
+        width: 3px;
+        left: 0;
+    }
+    50%{
+        left:calc(50% - 50px);
+        width: 100px;
+    }
+    to{
+        width: 3px;
+        left: calc(100% - 3px);
+    }
+}
+
 [tromoSM=social]{
-    background-color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.267);
     width: 40px;
     height: 40px;
     overflow: hidden;
@@ -10,7 +54,83 @@
     object-fit: cover;
     border-radius: 50px;    
     border: none;
+    will-change: tranform;
+    cursor: pointer;
     outline: none;
+    transition: 0.1s;
+    backdrop-filter: blur(30px);
+}
+[tromoSM=social]:hover{
+   /*
+   Liquid glass ahh-- use aff
+   box-shadow: 5px 5px 5px -5px rgba(255, 255, 255, 0.205) inset, -5px -5px 5px -5px rgba(255, 255, 255, 0.205) inset, 0px 0px 5px rgba(0, 0, 0, 0.363);  */
+    background-color: rgba(0, 0, 0, 0.658);
+    transform: 0.1s  cubic-bezier(0.075, 0.82, 0.165, 1) ;
+}
+[tromoSM=social]:active {
+    transform: scale(0.7);
+}
+[tromoSM=social]:active img{
+    transform: scale(0.7);
+    transform: 0.1s  cubic-bezier(0.075, 0.82, 0.165, 1) ;
+}
+
+[tromoSM=ui-bann]{
+    position: fixed;
+    filter: blur(15px) brightness(1.2);
+    width: 110vw;
+    height: 110vh;
+    display:  none;
+    object-fit: cover; 
+    animation: ui-sta 0.5s 0ms ;
+}
+@keyframes ui-sta{
+    from{
+    width: 150vw;
+    }
+    to{
+    width: 110vw;
+    }
+}
+[lnk]{
+    width: 25px;
+}
+[tromoSM="ui-wrap-le"]{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    margin: 15px;
+}
+[tromoSM=bttn-social-tx]{
+color: rgb(255, 255, 255);
+}
+[tromoSM=bttn-las]{
+display: flex;
+flex-wrap: wrap;
+font-size: medium;
+cursor: pointer;
+position: relative;
+justify-content: center;
+background-color: transparent;
+border: 1px solid #00000031;
+border-radius: 50px;
+margin: 2px 0px;
+align-items: center;
+transition: 0.2s background-color cubic-bezier(0.075, 0.82, 0.165, 1);
+font-weight: 700;
+width: 100%;
+height: 40px;
+}
+[tromoSM=bttn-las]:hover{
+border: 1px solid #00000000;
+background-color: #00000031;
+}
+[tromoSM=bttn-las]:active{
+background-color: #00000031;
+transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+transform: scale(0.8);
 }
 [tromoSM=social-w]{
     display: flex;
@@ -37,8 +157,47 @@
     margin: 10px;
     position: absolute;
 }
+[ui]::selection{
+    background-color: transparent;
+    color: transparent;
+}
+[tromoSM=prof-t]{
+   aspect-ratio: 1/1;
+    object-fit:cover ;
+    opacity: 0;
+    width: 40px;
+    transition: 0.3s  cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: translate(-10px,10px);
+    position: absolute;
+}
 [tromoSM=fill-prof]{
+    aspect-ratio: 1/1;
+    object-fit:cover ;
     width: 120px;
+    will-change: transform;
+    transform: scale(1);
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); 
+}
+[tromoSM=prof-w]:hover [tromoSM=prof-t] {
+    transform: translate(0px);
+    opacity: 1;
+}
+[tromoSM=prof-w]:hover [tromoSM=fill-prof] {
+ transform: scale(1.3);
+ filter: brightness(0.5) blur(5px);
+}
+
+[tromoSM=prof-w]{
+    width: 120px;
+    border-radius: 500px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    overflow: hidden;
+    position: relative;
+
 }
 [tromoSM=full-s]{
  width: 100%;
@@ -52,19 +211,24 @@
 }
 [tromoSM=form-s]{
     width: fit-content;
-    padding: 20px 15px;
-    background-color: #333;
+    padding: 25px 30px;
+    background-color: transparent;
     position: relative;
-    border-radius: 25px;   
+    margin: 20px 10px;
+    border-radius: 30px;   
+    vertical-align: middle;
+    align-self: center;
     display: flex;
+    backdrop-filter: brightness(0.7) blur(25px);
     flex-wrap: wrap;
+    box-shadow: 0px 0px 30px #0000004b;
    justify-content: center;
  align-items: center;    
  flex-direction: column;
 }
 [tromoSM=fill-ussr]{
     font-family: SF Pro;
-    font-weight: 500;
+    font-weight: 700;
     font-size: x-large;
     color: aliceblue;
     text-align: center;
@@ -73,6 +237,7 @@
     margin: 2px 0px;
 }
 [tromoSM=fill-des]{
+    font-size: smaller;
     margin: 5px 0px;
 }
 html,body{
