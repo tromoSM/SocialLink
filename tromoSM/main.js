@@ -1,23 +1,8 @@
-username="tromoSM"
-icotheme="ffffff"
-tromoSM_icotheme="white" //blank = default  light=light
-
-var PROFILE_LINK = "https://github.com/tromoSM"
-var description
-var GITHUB="https://github.com/tromoSM" 
-var LINKTREE="https://linkTr.ee/TromoSM" 
-var INSTAGRAM="https://instagram.com/tromoSM" 
-var X="https://x.com/tromoSM"
-var THREADS="https://www.threads.com/tromoSM"
-var GMAIL="mailto:tromosm.business@gmail.com"
-var LINKEDIN="https://www.linkedin.com/in/tromoSM"
-var BUYMEACOFFEE="https://buymeacoffee.com/tromosm"
-var PONTOON="https://pontoon.mozilla.org/contributors/czwiZRZhsQKfq6_a1Dy2r_PnkUM"
-var SM$PY="https://github.com/tromoSM/SM.S-PY"
 
 document.querySelector(`img`).addEventListener(`load`,function(){
  document.querySelector(`[tromoSM=ui-bann]`).style.display="block"
- document.querySelector(`[tromoSM="full-l"]`).style.display="none"
+ document.querySelector(`[tromoSM=form-s]`).style.display="flex"
+ document.querySelector(`[tromoSM="full-l"]`).style.display="none" //make htis the last - put more on top --loaderpagr
 })
 
 fetch(`https://api.github.com/users/${username}`).then(yo => yo.json()).then(dih =>{
@@ -61,6 +46,7 @@ document.querySelectorAll(`[tromoSM=prof-w]`).forEach(gurt=>{
   gurt.onclick=()=>{
     window.open(PROFILE_LINK,`_blank`)
   }
+  gurt.title="PROFILE_LINK_DES"
 })
 
  let githubIcoMode=""
@@ -105,7 +91,7 @@ document.querySelectorAll(`[lnk]`).forEach(ic=>{
   if(ic.closest(`[tromoSM="bttn-las"]`)){
   fuh=document.createElement('p')
   ic.closest(`[tromoSM="bttn-las"]`).appendChild(fuh)
-  fuh.textContent=ic.getAttribute(`lnk`)
+  fuh.textContent=ic.getAttribute(`lnk`).replace("_"," ")
   fuh.setAttribute(`tromoSM`,`bttn-social-tx`)
   if(fuh.textContent=="SM$PY"){
     fuh.textContent=="SM.$PY"
