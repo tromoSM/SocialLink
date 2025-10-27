@@ -1,10 +1,12 @@
-username="tromoSM" //github username
-icotheme="ffffff" //must me hex do not leave whatever u call "#"
-tromoSM_icotheme="white" //leave blank for default | set value to "white" or "light" --case insetive btw
+var username="tromoSM" //github username
+var profile_description="" //leave blank to use github description
+var icotheme="ffffff" //must me hex do not include whatever u call "#"
+var tromoSM_icotheme="white" //leave blank for default | set value to "white" or "light" --case insetive btw
+var custom_pfp={usage:false,url:""} //set usage to true if u wanna use a custom pfp and set url to custom url 
+var favicon={default:true,url:""}
 
 var PROFILE_LINK = "https://github.com/tromoSM" //link when the pfp is clicked
 var PROFILE_LINK_DES="Github profile" //what does the profile link open 
-var description 
 var GITHUB="https://github.com/tromoSM" 
 var LINKTREE="https://linkTr.ee/TromoSM" 
 var INSTAGRAM="https://instagram.com/tromoSM" 
