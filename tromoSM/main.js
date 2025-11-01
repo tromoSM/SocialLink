@@ -1,15 +1,22 @@
-
+var description 
+var fallback=Math.floor(Math.random() * 3) + 1
 document.querySelector(`img`).addEventListener(`load`,function(){
  document.querySelector(`[tromoSM=ui-bann]`).style.display="block"
  document.querySelector(`[tromoSM=form-s]`).style.display="flex"
+ document.querySelector(`[tromoSM=last-t]`).style.display="flex"
+ document.querySelectorAll(`notification`).forEach(nt=>{nt.style.display="flex"})
  document.querySelector(`[tromoSM="full-l"]`).style.display="none" //make htis the last - put more on top --loaderpagr
 })
 
 fetch(`https://api.github.com/users/${username}`).then(yo => yo.json()).then(dih =>{
    description= dih.bio
   document.querySelectorAll(`[tromoSM=fill-des]`).forEach(des=>{
+    if(profile_description==""){
     des.textContent=description
-    des.title=description
+    des.title=description}
+    else{
+      des.textContent=profile_description
+    }
 })
 })
 
@@ -20,6 +27,9 @@ const ballballball=document.createElement(`img`)
 ballballball.setAttribute(`tromoSM`,`accentgrab-color`)
 ballballball.src=`https://images.weserv.nl/?url=raw.githubusercontent.com/tromoSM/SocialLink/main/User-resources/${username}/banner.png&w=10`
 ballballball.crossOrigin="anonymous"
+ballballball.onerror=()=>{
+ballballball.src=`https://images.weserv.nl/?url=https://raw.githubusercontent.com/tromoSM/SocialLink/main/Resources/ui/banners/${fallback}.jpg&w=10`
+}
 ballballball.onload=()=>{
   let lilblanketahh=document.createElement(`canvas`)
   let publicahhexecution=lilblanketahh.getContext(`2d`)
@@ -29,12 +39,24 @@ ballballball.onload=()=>{
   lilfucker=publicahhexecution.getImageData(0,0,1,1).data
   let bigahhnih=`rgb(${lilfucker[0]},${lilfucker[1]},${lilfucker[2]})`
   fuhnaw.style.setProperty(`--accent`,bigahhnih)
-  console.log(bigahhnih)
 }
 
 
 document.querySelectorAll(`[tromoSM=fill-prof]`).forEach(prof=>{
+if(custom_pfp["usage"]==false){
 prof.setAttribute(`src`,`https://github.com/${username}.png`)
+}
+else if(custom_pfp["usage"]==true){
+ if(custom_pfp['url']!==""){
+  prof.setAttribute(`src`,custom_pfp[`url`])
+ }
+ else{
+prof.setAttribute(`src`,`https://github.com/${username}.png`)
+ }
+}
+prof.onerror = () =>{
+  prof.setAttribute(`src`,`https://github.com/tromoSM/SocialLink/raw/refs/heads/main/Resources/ui/pfp%20fallback.svg`)
+}
 })
 document.querySelectorAll(`[tromoSM=fill-ussr]`).forEach(usr=>{
     usr.textContent=username
@@ -46,7 +68,7 @@ document.querySelectorAll(`[tromoSM=prof-w]`).forEach(gurt=>{
   gurt.onclick=()=>{
     window.open(PROFILE_LINK,`_blank`)
   }
-  gurt.title="PROFILE_LINK_DES"
+  gurt.title=PROFILE_LINK_DES
 })
 
  let githubIcoMode=""
@@ -95,6 +117,7 @@ document.querySelectorAll(`[lnk]`).forEach(ic=>{
   fuh.setAttribute(`tromoSM`,`bttn-social-tx`)
   if(fuh.textContent=="SM$PY"){
     fuh.textContent=="SM.$PY"
+    ic.closest(`[tromoSM="bttn-las"]`).onclick=()=>window.open(SM$PY)
   }
 }
 
@@ -119,7 +142,9 @@ document.querySelectorAll(`[lnk]`).forEach(ic=>{
 
 
 document.querySelector(`[tromoSM=ui-bann]`).setAttribute(`src`,`https://github.com/tromoSM/SocialLink/blob/main/User-resources/${username}/banner.png?raw=true`)
-
+document.querySelector(`[tromoSM=ui-bann]`).onerror=()=>{
+  document.querySelector(`[tromoSM=ui-bann]`).setAttribute(`src`,`https://github.com/tromoSM/SocialLink/blob/main/Resources/ui/banners/${fallback}.jpg?raw=true`)
+}
 document.querySelectorAll(`[ui]`).forEach(ui=>{
 ui.setAttribute(`src`,`https://raw.githubusercontent.com/tromoSM/SocialLink/refs/heads/main/Resources/ui/${ui.getAttribute(`ui`)}.svg`)
 
@@ -132,10 +157,16 @@ else if(tromoSM_icotheme.toUpperCase()=="LIGHT" || tromoSM_icotheme.toUpperCase(
 })
 
 
-document.querySelectorAll(`[ui]`).forEach(yo=>{
+document.querySelectorAll(`[ui-nodrag]`).forEach(yo=>{
   yo.addEventListener("dragstart",gurt=> gurt.preventDefault())
 })
 
 document.querySelectorAll(`[onclick]`).forEach(ahh=>{
   ahh.style.cursor="pointer"
 })
+
+
+dih=document.createElement(`p`)
+document.body.appendChild(dih)
+dih.innerHTML="Made with <span>♥</span>"
+dih.setAttribute(`tromoSM`,`last-t`)
