@@ -2,14 +2,15 @@
     --accent: rgba(255, 255, 255, 1);
 }
 [tromoSM="glowingahh"]{
-    width: 100vw;
-    height: 10vh;
-    top: 0;
-    filter: blur(50px);
-    opacity: 0.1;
+    width: 95vw;
+    height: 7vh;
+    bottom: 0;
+    transform: translateY(14vh);
     transition: 0.2s;
     position: absolute;
-    background-color: var(--accent);
+    box-shadow: 0px 0px 70px var(--accent);
+animation: open-load-all 1.5s 0ms infinite;
+    background-color: transparent;
 }
 [ui-nodrag]::selection{
     background-color: transparent;
@@ -188,6 +189,21 @@ animation: open-load 1s 0ms infinite;
     50%{
         left:calc(50% - 50px);
         width: 100px;
+    }
+    to{
+        width: 3px;
+        left: calc(100% - 3px);
+    }
+}
+
+@keyframes open-load-all{
+    from{
+        width: 3px;
+        left: 0;
+    }
+    50%{
+        left:calc(50% - 50px);
+        width: 100vh;
     }
     to{
         width: 3px;
