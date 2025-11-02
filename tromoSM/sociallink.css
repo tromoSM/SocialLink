@@ -1,6 +1,16 @@
 :root{
     --accent: rgba(255, 255, 255, 1);
 }
+[tromoSM="glowingahh"]{
+    width: 100vw;
+    height: 10vh;
+    top: 0;
+    filter: blur(50px);
+    opacity: 0.1;
+    transition: 0.2s;
+    position: absolute;
+    background-color: var(--accent);
+}
 [ui-nodrag]::selection{
     background-color: transparent;
 }
@@ -166,6 +176,7 @@ background-color: var(--accent);
 box-shadow: 0px 0px 14px var(--accent);
 width: 100px;
 position: absolute;border-radius: 50px;
+    transition: 0.2s;
 height: 3px;
 animation: open-load 1s 0ms infinite;
 }
